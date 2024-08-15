@@ -11,7 +11,7 @@ type Props = {}
 const page = (props: Props) => {
 
     const [users, setUsers] = useState([])
-
+    const router = useRouter()
 
     useEffect(() => {
         async function getAllUsers() {
@@ -27,10 +27,20 @@ const page = (props: Props) => {
         }
 
         getAllUsers()
-    }, [])
+    }, [remove])
 
 
-    console.log(users)
+    function remove(id) {
+         fetch(`http://localhost:8080/users/${id}`, {
+            method: 'DELETE'
+        })
+
+    }
+
+    function edit(id){
+        router.push(`/user/${id}`)
+    }
+
     return (
         <Template>
             <div className='border-2 px-10 py-10 border-none rounded-md shadow-2xl'>
@@ -44,15 +54,16 @@ const page = (props: Props) => {
                                 <div className='ms-4'>
                                     <p>Nome: {user.name}</p>
                                     <p>E-mail: {user.email}</p>
-                                    <i className="pi pi-times"></i>
-                                    <span className="pi pi-user"></span>
+                                    
+                                    <i onClick={e => remove(user.id)} className="pi pi-times"></i>
+                                    <span className="pi pi-user" onClick={e => edit(user.id)}></span>
                                 </div>
                             </div>
                         ))}
-                        <Link href='/auth'>
-                        <button className='border-2 bg-blue-500 border-none rounded-md py-2 px-2'>Cadastrar</button>
-                        </Link>
-                        
+                    <Link href='/auth'>
+                        <button className='border-2 bg-green-400 border-none rounded-md py-2 px-2'>Cadastrar</button>
+                    </Link>
+
                 </div>
             </div>
         </Template>

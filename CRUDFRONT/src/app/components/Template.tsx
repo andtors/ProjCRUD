@@ -25,7 +25,7 @@ export const Template: React.FC<TemplateProps> = ({ children }: TemplateProps) =
 
 export const Footer: React.FC = () => {
     return (
-        <footer className="bg-blue-600 text-white py-4 fixed bottom-0 w-screen " >
+        <footer className="bg-green-600 text-white py-4 fixed bottom-0 w-screen " >
             <div className=" text-center ">
                 Desenvolvido por André Torres
             </div>
@@ -36,10 +36,10 @@ export const Footer: React.FC = () => {
 export const Header: React.FC = () => {
 
     return (
-        <header className="bg-blue-600 text-white py-4 px-4 shadow-xl fixed top-0 w-screen">
+        <header className="bg-green-600 text-white py-4 px-4 shadow-xl fixed top-0 w-screen">
             <div className="flex justify between items-center">
                 <div className="container flex justify between ">
-                    <p className="text-3xl">BancoTS</p>
+                    <p className="text-3xl">CRUD com Spring</p>
                 </div>
             </div>
         </header>
