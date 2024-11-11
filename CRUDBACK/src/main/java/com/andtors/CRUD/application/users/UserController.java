@@ -83,15 +83,6 @@ public class UserController {
                 }).orElseGet( () -> new ResponseEntity("User not found.",HttpStatus.NOT_FOUND));
     }
 
-    private UserDTO convert(User user){
-        return UserDTO
-                .builder()
-                .email(user.getEmail())
-                .name(user.getName())
-                .password(user.getPassword())
-                .build();
-    }
-
     private User convert (UserDTO dto){
         User user = new User();
         user.setEmail(dto.getEmail());
